@@ -5,6 +5,7 @@ const {
   getLaptops, 
   getLaptop,
   createLaptop,
+  deleteLaptop
  } = require("../controllers/laptopController");
 
 //assigning express' Router component to the router variable
@@ -23,6 +24,9 @@ router.get('/:id', getLaptop)
 //POST a new laptop
 router.post("/", createLaptop);
 
+
+//DELETE a laptopt
+router.delete('/:id', deleteLaptop)
 
 
 
