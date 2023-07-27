@@ -23,6 +23,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors())
 //ROUTES
 //This will provide an entry point to the laptops page
 app.use('/api/laptops', laptopRoutes);
