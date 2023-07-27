@@ -1,9 +1,14 @@
 import LaptopDetails from '../LaptopDetails/LaptopDetails';
 
-const LaptopCard = () => {
+const LaptopCard = ({laptops}) => {
   return (
     <div className="container">
-      <LaptopDetails />
+        {laptops.map((laptop)=>(
+      <div key={laptop._id} className='laptops-container'>
+         <LaptopDetails laptop ={laptop} />
+      </div>
+    ))}
+      
     </div>
   );
 };
