@@ -1,11 +1,13 @@
 import "./App.css";
-import Laptops from './pages/Laptops/Laptops'
+import NavBar from "./components/NavBar/NavBar";
+import Laptops from "./pages/Laptops/Laptops";
 
 function App() {
-return(
-  <div className="App">
-      <Laptops />
-  </div>
-)}
+  return (
+    <div className="App">
+      <NavBar />
+    </div>
+  );
+}
 
 export default App;
