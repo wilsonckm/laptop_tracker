@@ -10,6 +10,25 @@ const getLaptops = async (req, res) => {
   res.status(200).json(laptops);
 };
 
+//GET a single laptop
+const getLaptop=async(req,res)=>{
+  //destructing the id of the request object
+  const {id} = req.params
+
+  //Check if the id is a valid mongo id. (valid mongoid = 24chars)
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(404).json({error: 'No such laptopt with this id'})
+  }
+
+  const laptop = await Laptop.findById(id)
+  //Check if laptop doesn't exist return a 4040 and a message
+  //otherwise return the laptop object in json
+  if (!laptop){
+    return res.status(404).json({error: 'No such laptop'})
+  }
+  res.status(200).json(laptop)
+}
+
 
 //CREATE new laptop
 const createLaptop = async (req, res) => {
@@ -26,5 +45,6 @@ const createLaptop = async (req, res) => {
 
 module.exports = {
   getLaptops,
-  createLaptop
+  createLaptop,
+  getLaptop
 };
