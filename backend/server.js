@@ -16,7 +16,6 @@ const { PORT, MONGO_URI } = process.env;
 //MIDDLEWARE
 //If there's any body(data) to the reques object, it attached it to the req object in JSON format
 app.use(express.json());
-app.use(cors())
 
 //whenever a request comes to the server this will log its path and the method (GET,POST etc...)
 app.use((req, res, next) => {
