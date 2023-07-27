@@ -1,4 +1,4 @@
-const LaptopDetails = () => {
+const LaptopDetails = ({laptop}) => {
   // container component needs to go to parent component, LaptopCard.jsx
   return (
     <div className="col s12 m7">
@@ -8,9 +8,11 @@ const LaptopDetails = () => {
           <span className="card-title">'Brand + Model'</span>
         </div>
         <div className="card-content">
-          <p>Color: </p>
-          <p>SSD: </p>
-          <p>Ram: </p>
+          <p>Brand: {laptop.brand} </p>
+          <p>Model: {laptop.model} </p>
+          <p>Color: {laptop.color} </p>
+          <p>SSD: {laptop.ssd} GB</p>
+          <p>Ram: {laptop.ram} GB</p>
         </div>
       </div>
     </div>
