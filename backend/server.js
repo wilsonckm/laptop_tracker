@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 //EXPRESS APP
 const app = express();
 
+//destruct the port variable from the .env file
+const {PORT} = process.env
+
 //MIDDLEWARE
 //If there's any body(data) to the reques object, it attached it to the req object in JSON format
 app.use(express.json());
