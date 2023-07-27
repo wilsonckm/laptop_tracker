@@ -1,12 +1,13 @@
 //assiging to the express variable the requires express library
 const express = require("express");
 
-const { 
-  getLaptops, 
+const {
+  getLaptops,
   getLaptop,
   createLaptop,
-  deleteLaptop
- } = require("../controllers/laptopController");
+  deleteLaptop,
+  updateLaptop,
+} = require("../controllers/laptopController");
 
 //assigning express' Router component to the router variable
 const router = express.Router();
@@ -18,22 +19,16 @@ const router = express.Router();
 router.get("/", getLaptops);
 
 //GET a single laptopt
-router.get('/:id', getLaptop)
-
+router.get("/:id", getLaptop);
 
 //POST a new laptop
 router.post("/", createLaptop);
 
+//DELETE a laptop
+router.delete("/:id", deleteLaptop);
 
-//DELETE a laptopt
-router.delete('/:id', deleteLaptop)
-
-
-
-
-
-
-
+//UPDATE a laptopt
+router.patch("/:id", updateLaptop);
 
 //exporting to make it accessible to other parts of the applicaton
 module.exports = router;

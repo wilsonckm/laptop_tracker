@@ -48,25 +48,48 @@ const deleteLaptop = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.status(404).json({ error: "No such laptop" });
+    return res.status(404).json({ error: "No such laptop" });
   }
 
   const laptop = await Laptop.findByIdAndDelete({ _id: id });
 
   if (!laptop) {
-    //Return so the client can be informed about the error
     return res.status(404).json({ error: "No such laptop" });
   }
   res.status(200).json(laptop);
 };
 
 
+//UPDATE a laptop
+const updateLaptop = async (req, res) => {
+  //destruct the id from the request object
+  const { id } = req.params;
 
+  //checking if the id is a valid mongoose id
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such laptop" });
+  }
 
+  //first argument of the find function is to find what laptop to update
+  //second argument is what we pass to it. It ensures that the object still has the same
+  //id after changing its properties and it only updates what we update in the frontend
+  const laptop = await Laptop.findByIdAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    }
+  );
+
+  if (!laptop) {
+    return res.status(404).json({ error: "No such laptop" });
+  }
+  res.status(200).json(laptop);
+};
 
 module.exports = {
   getLaptops,
   createLaptop,
   getLaptop,
-  deleteLaptop
+  deleteLaptop,
+  updateLaptop
 };
