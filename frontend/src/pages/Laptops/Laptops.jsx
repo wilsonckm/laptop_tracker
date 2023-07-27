@@ -1,4 +1,7 @@
+
 import { useState, useEffect } from 'react';
+
+
 
 import LaptopCard from '../../components/LaptopCard/LaptopCard';
 
