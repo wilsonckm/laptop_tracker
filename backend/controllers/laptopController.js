@@ -73,12 +73,7 @@ const updateLaptop = async (req, res) => {
   //first argument of the find function is to find what laptop to update
   //second argument is what we pass to it. It ensures that the object still has the same
   //id after changing its properties and it only updates what we update in the frontend
-  const laptop = await Laptop.findByIdAndUpdate(
-    { _id: id },
-    {
-      ...req.body,
-    }
-  );
+  const laptop = await Laptop.findOneAndUpdate( { _id: id },{...req.body,});
 
   if (!laptop) {
     return res.status(404).json({ error: "No such laptop" });
