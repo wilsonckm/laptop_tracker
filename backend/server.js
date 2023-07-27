@@ -1,12 +1,16 @@
+//Require dotenv to use variables from .env file
+require('dotenv').config()
+
 //DEPENDENCIES
 const express = require("express");
 const mongoose = require("mongoose");
+const laptopRoutes = require("./routes/laptops");
 
 //EXPRESS APP
 const app = express();
 
 //destruct the port variable from the .env file
-const {PORT} = process.env
+const { PORT, MONGO_URI } = process.env;
 
 //MIDDLEWARE
 //If there's any body(data) to the reques object, it attached it to the req object in JSON format
@@ -15,11 +19,13 @@ app.use(express.json());
 //whenever a request comes to the server this will log its path and the method (GET,POST etc...)
 app.use((req, res, next) => {
   console.log(req.path, req.method);
+  next();
 });
 
 //ROUTES
 //This will provide an entry point to the laptops page
-app.use("api/laptops", laptopRoutes);
+app.use("/api/laptops", laptopRoutes);
+
 
 //CONNECT TO DB
 mongoose
