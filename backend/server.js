@@ -1,10 +1,10 @@
 //Require dotenv to use variables from .env file
-require('dotenv').config()
+require('dotenv').config();
 
 //DEPENDENCIES
-const express = require("express");
-const mongoose = require("mongoose");
-const laptopRoutes = require("./routes/laptops");
+const express = require('express');
+const mongoose = require('mongoose');
+const laptopRoutes = require('./routes/laptops');
 
 //EXPRESS APP
 const app = express();
@@ -24,8 +24,7 @@ app.use((req, res, next) => {
 
 //ROUTES
 //This will provide an entry point to the laptops page
-app.use("/api/laptops", laptopRoutes);
-
+app.use('/api/laptops', laptopRoutes);
 
 //CONNECT TO DB
 mongoose

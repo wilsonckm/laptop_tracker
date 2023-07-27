@@ -1,6 +1,6 @@
 //To interact with db we need the schema and mongoose library
-const Laptop = require("../models/laptopModel");
-const mongoose = require("mongoose");
+const Laptop = require('../models/laptopModel');
+const mongoose = require('mongoose');
 
 //GET all laptops
 const getLaptops = async (req, res) => {
@@ -17,14 +17,14 @@ const getLaptop = async (req, res) => {
 
   //Check if the id is a valid mongo id. (valid mongoid = 24chars)
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such laptopt with this id" });
+    return res.status(404).json({ error: 'No such laptop with this id' });
   }
 
   const laptop = await Laptop.findById(id);
   //Check if laptop doesn't exist return a 4040 and a message
   //otherwise return the laptop object in json
   if (!laptop) {
-    return res.status(404).json({ error: "No such laptop" });
+    return res.status(404).json({ error: 'No such laptop' });
   }
   res.status(200).json(laptop);
 };
@@ -48,17 +48,16 @@ const deleteLaptop = async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such laptop" });
+    return res.status(404).json({ error: 'No such laptop' });
   }
 
   const laptop = await Laptop.findByIdAndDelete({ _id: id });
 
   if (!laptop) {
-    return res.status(404).json({ error: "No such laptop" });
+    return res.status(404).json({ error: 'No such laptop' });
   }
   res.status(200).json(laptop);
 };
-
 
 //UPDATE a laptop
 const updateLaptop = async (req, res) => {
@@ -67,16 +66,16 @@ const updateLaptop = async (req, res) => {
 
   //checking if the id is a valid mongoose id
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such laptop" });
+    return res.status(404).json({ error: 'No such laptop' });
   }
 
   //first argument of the find function is to find what laptop to update
   //second argument is what we pass to it. It ensures that the object still has the same
   //id after changing its properties and it only updates what we update in the frontend
-  const laptop = await Laptop.findOneAndUpdate( { _id: id },{...req.body,});
+  const laptop = await Laptop.findOneAndUpdate({ _id: id }, { ...req.body });
 
   if (!laptop) {
-    return res.status(404).json({ error: "No such laptop" });
+    return res.status(404).json({ error: 'No such laptop' });
   }
   res.status(200).json(laptop);
 };
@@ -86,5 +85,5 @@ module.exports = {
   createLaptop,
   getLaptop,
   deleteLaptop,
-  updateLaptop
+  updateLaptop,
 };
