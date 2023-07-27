@@ -1,4 +1,7 @@
 const EditLaptopForm = ({ laptop }) => {
+
+  
+
   return (
     <div className="row">
       <form className="col">

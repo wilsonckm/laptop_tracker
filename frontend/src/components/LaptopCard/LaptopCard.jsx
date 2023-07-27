@@ -1,6 +1,14 @@
 import LaptopDetails from '../LaptopDetails/LaptopDetails';
 
-const LaptopCard = ({ laptops }) => {
+const LaptopCard = ({ laptops , getLaptops }) => {
+  //function that
+  //MAKes POST REQUEST WHEN SUBMIT THE FORM
+  //updates the state FOR THIS CURRENT component 
+  //updates model, brand etc NEW STATE here
+  //then call the getLaptops function
+
+
+
   return (
     <>
       <div className="container">
