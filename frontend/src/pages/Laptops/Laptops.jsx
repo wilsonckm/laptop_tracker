@@ -9,13 +9,6 @@ const Laptops =()=>{
   const [laptops, setLaptops] = useState([])
   useEffect(()=>{
     const getLaptops = async()=>{
-      const options = {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-
       try{
         const response = await fetch(BASE_URL )
         const allLaptops = await response.json()
