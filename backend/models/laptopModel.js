@@ -21,11 +21,11 @@ const laptopSchema = new Schema(
       required: true,
     },
     ssd: {
-      type: Number,
+      type: String,
       required: true,
     },
     ram: {
-      type: Number,
+      type: String,
       required: true,
     },
   },
