@@ -1,45 +1,37 @@
+import { useState, useEffect } from 'react';
 
-import {useState, useEffect} from 'react';
+const Laptops = () => {
+  const [laptops, setLaptops] = useState([]);
 
-
-
-const Laptops =()=>{
-
-  const [laptops, setLaptops] = useState([])
-
-  useEffect(()=>{
-    const getLaptops = async()=>{
+  useEffect(() => {
+    const getLaptops = async () => {
       const options = {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
+      };
+
+      try {
+        const response = await fetch(
+          'http://localhost:4000/api/laptops',
+          'GET',
+        );
+        const json = await response.json();
+
+        setLaptops(JSON.stringify(json));
+      } catch (error) {
+        console.log({ error: error.message });
       }
+    };
+    getLaptops();
+  }, []);
 
-      try{
-        const response = await fetch('http://localhost:4000/api/laptops', "GET")
-        const json = await response.json()
-        
-        setLaptops(JSON.stringify(json))
-        
-  
-      }catch(error){
-        console.log({error: error.message})
-  
-      }
-    }
-    getLaptops()
-  },[])
-
-
-
-
-  return(
+  return (
     <>
-    <p>{laptops}</p>
+      <p>{laptops}</p>
     </>
-  )
-}
-
+  );
+};
 
 export default Laptops;
