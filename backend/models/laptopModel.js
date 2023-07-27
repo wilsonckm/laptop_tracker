@@ -1,5 +1,5 @@
 //requiring mongoose and assigning it to mongoose variable
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 //accessing Schema from mongoose library and assigning it to Schema var for easier access to it
 
@@ -29,8 +29,8 @@ const laptopSchema = new Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 //exporting the module 'Laptop' and passing the schema to it in the second argument
-module.exports = mongoose.model("Laptop", laptopSchema);
+module.exports = mongoose.model('Laptop', laptopSchema);
