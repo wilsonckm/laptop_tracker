@@ -1,10 +1,8 @@
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-
-const EditLaptopForm = ({ laptop, getLaptops }) => {
-  const [isEdit, setisEdit] = useState(true)
+const EditLaptopForm = ({ laptop, getLaptops, setEditBtn }) => {
+  const [isEdit, setisEdit] = useState(true);
   const [editForm, setEditForm] = useState({
     brand: laptop.brand,
     model: laptop.model,
@@ -12,7 +10,7 @@ const EditLaptopForm = ({ laptop, getLaptops }) => {
     ssd: laptop.ssd,
     ram: laptop.ram,
   });
-  const BASE_URL = "http://localhost:4000/api/laptops";
+  const BASE_URL = 'http://localhost:4000/api/laptops';
 
   const handleChange = (evt) => {
     const editLaptopForm = { ...editForm, [evt.target.name]: evt.target.value };
@@ -25,10 +23,10 @@ const EditLaptopForm = ({ laptop, getLaptops }) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const options = {
-
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+      },
       body: JSON.stringify(editForm),
     };
     try {
@@ -36,6 +34,7 @@ const EditLaptopForm = ({ laptop, getLaptops }) => {
     } catch (error) {
       console.log(error);
     }
+    setEditBtn(true);
     getLaptops();
   };
 
@@ -48,7 +47,6 @@ const EditLaptopForm = ({ laptop, getLaptops }) => {
       ram: laptop.ram,
     });
   }, [laptop]);
-
 
   return (
     <div className="row">
@@ -88,13 +86,10 @@ const EditLaptopForm = ({ laptop, getLaptops }) => {
           value={editForm.ram}
           onChange={handleChange}
         />
-        <Link to= {BASE_URL} >
-          <button
-          onClick={()=>setisEdit(!isEdit)}
-          type="submit">
-            {isEdit ? 'submit' : 'edit' }
-            </button>
-          </Link>
+
+        <button onClick={() => setisEdit(!isEdit)} type="submit">
+          {isEdit ? 'submit' : 'edit'}
+        </button>
       </form>
     </div>
   );
