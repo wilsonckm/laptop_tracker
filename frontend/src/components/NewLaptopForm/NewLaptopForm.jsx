@@ -40,7 +40,6 @@ const NewLaptopForm = ({ getLaptops, setLaptops }) => {
         <div className="row">
           <div className="input-field col s6">
             <input
-              placeholder="Brand"
               id="brand"
               type="text"
               className="validate"
@@ -48,11 +47,10 @@ const NewLaptopForm = ({ getLaptops, setLaptops }) => {
               value={newLaptop.brand}
               onChange={handleChange}
             />
-            <label for="brand">Brand</label>
+            <label htmlFor="brand">Brand</label>
           </div>
           <div className="input-field col s6">
             <input
-              placeholder="model"
               id="model"
               type="text"
               className="validate"
@@ -60,13 +58,12 @@ const NewLaptopForm = ({ getLaptops, setLaptops }) => {
               value={newLaptop.model}
               onChange={handleChange}
             />
-            <label for="model">model</label>
+            <label htmlFor="model">Model</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="color"
               id="color"
               type="text"
               className="validate"
@@ -74,13 +71,12 @@ const NewLaptopForm = ({ getLaptops, setLaptops }) => {
               value={newLaptop.color}
               onChange={handleChange}
             />
-            <label for="color">color</label>
+            <label htmlFor="color">Color</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="ssd"
               id="ssd"
               type="text"
               className="validate"
@@ -88,13 +84,12 @@ const NewLaptopForm = ({ getLaptops, setLaptops }) => {
               value={newLaptop.ssd}
               onChange={handleChange}
             />
-            <label for="ssd">ssd</label>
+            <label htmlFor="ssd">SSD</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input
-              placeholder="ram"
               id="ram"
               type="text"
               className="validate"
@@ -102,7 +97,7 @@ const NewLaptopForm = ({ getLaptops, setLaptops }) => {
               value={newLaptop.ram}
               onChange={handleChange}
             />
-            <label for="ram">ram</label>
+            <label htmlFor="ram">RAM</label>
           </div>
         </div>
         <button type="submit">Add Laptop</button>
