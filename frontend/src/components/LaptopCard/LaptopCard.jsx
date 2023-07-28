@@ -19,7 +19,7 @@ const LaptopCard = ({ laptops, getLaptops, setLaptops }) => {
                   <img src="https://static.independent.co.uk/2022/06/22/11/macbook%20pro%20m2%20indybest.jpg" />
                 </div>
                 <div className="card-content">
-                  <LaptopDetails laptop={laptop} />
+                  <LaptopDetails laptop={laptop} getLaptops={getLaptops} />
                 </div>
               </div>
             </div>
