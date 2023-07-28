@@ -106,7 +106,7 @@ const NewLaptopForm = ({ getLaptops, setLaptops }) => {
             <label htmlFor="ram">RAM</label>
           </div>
         </div>
-        <button type="submit">Add Laptop</button>
+        <button className="btn waves-effect waves-light" type="submit">Add Laptop</button>
       </form>
     </div>
   );

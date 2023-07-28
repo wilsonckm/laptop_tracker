@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import LaptopCard from '../../components/LaptopCard/LaptopCard';
+import NewLaptopForm from '../../components/NewLaptopForm/NewLaptopForm';
 
 const Laptops = () => {
   const BASE_URL = 'http://localhost:4000/api/laptops';
@@ -22,7 +23,21 @@ const Laptops = () => {
 
   return (
     <>
-      <LaptopCard getLaptops={getLaptops} laptops={laptops} setLaptops={setLaptops} />
+      {/* <LaptopCard getLaptops={getLaptops} laptops={laptops} setLaptops={setLaptops} /> */}
+
+      <div className="container">
+      <div className="row">
+        <div className="col s12 m6">
+        <LaptopCard getLaptops={getLaptops} laptops={laptops} setLaptops={setLaptops} />
+          
+        </div>
+        <div className="col s12 m6">
+          <NewLaptopForm getLaptops= { getLaptops} setLaptops= {setLaptops}  />
+        </div>
+      </div>
+    </div>
+
+      
     </>
   );
 };
