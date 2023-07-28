@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Button margin */
+.mr {
+  margin-right: 10px;
+}
+
+.ml {
+  margin-left: 10px;
+}
+
+
+
+.d-flex {
+  display:flex;
+
+}

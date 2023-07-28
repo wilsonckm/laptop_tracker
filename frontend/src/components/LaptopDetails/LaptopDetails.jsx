@@ -46,8 +46,8 @@ const LaptopDetails = ({ laptop, getLaptops, onDelete }) => {
         />
       )}
 
-      <button onClick={() => setEditBtn(!editBtn)}>edit</button>
-      <button onClick={handleDelete}>Delete</button>
+      <button className="btn waves-effect waves-light mr"  onClick={() => setEditBtn(!editBtn)}>edit</button>
+      <button className="btn waves-effect waves-light ml" onClick={handleDelete}>Delete</button>
     </>
   );
 };
