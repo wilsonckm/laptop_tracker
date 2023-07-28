@@ -87,7 +87,11 @@ const EditLaptopForm = ({ laptop, getLaptops, setEditBtn }) => {
           onChange={handleChange}
         />
 
-        <button className="btn waves-effect waves-light" onClick={() => setisEdit(!isEdit)} type="submit">
+        <button
+          className="btn blue waves-effect waves-light"
+          onClick={() => setisEdit(!isEdit)}
+          type="submit"
+        >
           {isEdit ? 'submit' : 'edit'}
         </button>
       </form>
