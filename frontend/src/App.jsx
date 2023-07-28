@@ -1,13 +1,23 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
-import Laptops from './pages/Laptops/Laptops';
+
+import "./App.css";
+import NavBar from "./components/NavBar/NavBar";
+import Laptops from "./pages/Laptops/Laptops";
+import { useState } from "react";
+import Login from "./pages/LoginPage/LoginPage";
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <div className="App">
-      <NavBar />
-      <Laptops />
+      {user ? (
+        <>
+          <NavBar user={user} />
+          <Laptops />
+        </>
+      ) : (
+        <Login setUser={setUser} />
+      )}
     </div>
   );
 }
