@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const EditLaptopForm = ({ laptop, getLaptops }) => {
   const [editForm, setEditForm] = useState({
@@ -8,7 +8,7 @@ const EditLaptopForm = ({ laptop, getLaptops }) => {
     ssd: laptop.ssd,
     ram: laptop.ram,
   });
-  const BASE_URL = 'http://localhost:4000/api/laptops';
+  const BASE_URL = "http://localhost:4000/api/laptops";
 
   const handleChange = (evt) => {
     const editLaptopForm = { ...editForm, [evt.target.name]: evt.target.value };
@@ -21,9 +21,9 @@ const EditLaptopForm = ({ laptop, getLaptops }) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const options = {
-      method: 'PATCH',
+      method: "PATCH",
       header: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(editForm),
     };
