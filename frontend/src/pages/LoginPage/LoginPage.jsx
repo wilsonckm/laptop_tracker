@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Login(props) {
-  const [inputUser, setInputUser] = useState('');
+  const [inputUser, setInputUser] = useState("");
 
   const handleChange = (evt) => {
     setInputUser(evt.target.value);
@@ -18,7 +18,9 @@ export default function Login(props) {
       <form onSubmit={handleSubmit} className="container">
         <label>Username</label>
         <input type="text" onChange={handleChange} />
-        <button type="submit">Sign In</button>
+        <button className="btn waves-effect waves-light" type="submit">
+          Sign In
+        </button>
       </form>
     </>
   );
