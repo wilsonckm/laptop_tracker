@@ -1,7 +1,4 @@
-
 import { useState, useEffect } from 'react';
-
-
 
 import LaptopCard from '../../components/LaptopCard/LaptopCard';
 
@@ -17,15 +14,15 @@ const Laptops = () => {
       setLaptops(allLaptops);
     } catch (error) {
       console.log({ error: error.message });
-      }
-    };
-    useEffect(() => {
+    }
+  };
+  useEffect(() => {
     getLaptops();
   }, []);
 
   return (
     <>
-      <LaptopCard onCreate={getLaptops} laptops={laptops} />
+      <LaptopCard laptops={laptops} setLaptops={setLaptops} />
     </>
   );
 };

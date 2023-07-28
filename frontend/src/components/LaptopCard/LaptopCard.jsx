@@ -1,13 +1,12 @@
 import LaptopDetails from '../LaptopDetails/LaptopDetails';
+import NewLaptopForm from '../NewLaptopForm/NewLaptopForm';
 
-const LaptopCard = ({ laptops , getLaptops }) => {
+const LaptopCard = ({ laptops, getLaptops, setLaptops }) => {
   //function that
   //MAKes POST REQUEST WHEN SUBMIT THE FORM
-  //updates the state FOR THIS CURRENT component 
+  //updates the state FOR THIS CURRENT component
   //updates model, brand etc NEW STATE here
   //then call the getLaptops function
-
-
 
   return (
     <>
@@ -25,6 +24,7 @@ const LaptopCard = ({ laptops , getLaptops }) => {
               </div>
             </div>
           ))}
+          <NewLaptopForm getLaptops={getLaptops} setLaptops={setLaptops} />
         </div>
       </div>
     </>

@@ -1,62 +1,111 @@
-const NewLaptopForm = () => {
+import { useState } from 'react';
+
+const NewLaptopForm = ({ getLaptops, setLaptops }) => {
+  const BASE_URL = 'http://localhost:4000/api/laptops';
+  const [newLaptop, setNewLaptop] = useState({
+    brand: '',
+    model: '',
+    color: '',
+    ssd: '',
+    ram: '',
+  });
+
+  const handleChange = (evt) => {
+    const newLaptopForm = { ...newLaptop, [evt.target.name]: evt.target.value };
+    setNewLaptop(newLaptopForm);
+  };
+
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newLaptop),
+    };
+    try {
+      await fetch(BASE_URL, options);
+      setLaptops([...newLaptop]);
+      // setNewLaptop({});
+      getLaptops();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="row">
-      <form className="col s12">
+      <form className="col s12" onSubmit={handleSubmit}>
         <div className="row">
           <div className="input-field col s6">
             <input
-              placeholder="Placeholder"
-              id="first_name"
+              placeholder="Brand"
+              id="brand"
               type="text"
               className="validate"
+              name="brand"
+              value={newLaptop.brand}
+              onChange={handleChange}
             />
-            <label for="first_name">First Name</label>
+            <label for="brand">Brand</label>
           </div>
           <div className="input-field col s6">
-            <input id="last_name" type="text" className="validate" />
-            <label for="last_name">Last Name</label>
+            <input
+              placeholder="model"
+              id="model"
+              type="text"
+              className="validate"
+              name="model"
+              value={newLaptop.model}
+              onChange={handleChange}
+            />
+            <label for="model">model</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input
-              disabled
-              value="I am not editable"
-              id="disabled"
+              placeholder="color"
+              id="color"
               type="text"
               className="validate"
+              name="color"
+              value={newLaptop.color}
+              onChange={handleChange}
             />
-            <label for="disabled">Disabled</label>
+            <label for="color">color</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
-            <input id="password" type="password" className="validate" />
-            <label for="password">Password</label>
+            <input
+              placeholder="ssd"
+              id="ssd"
+              type="text"
+              className="validate"
+              name="ssd"
+              value={newLaptop.ssd}
+              onChange={handleChange}
+            />
+            <label for="ssd">ssd</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
-            <input id="email" type="email" className="validate" />
-            <label for="email">Email</label>
+            <input
+              placeholder="ram"
+              id="ram"
+              type="text"
+              className="validate"
+              name="ram"
+              value={newLaptop.ram}
+              onChange={handleChange}
+            />
+            <label for="ram">ram</label>
           </div>
         </div>
-        <div className="row">
-          <div className="col s12">
-            This is an inline input field:
-            <div className="input-field inline">
-              <input id="email_inline" type="email" className="validate" />
-              <label for="email_inline">Email</label>
-              <span
-                className="helper-text"
-                data-error="wrong"
-                data-success="right"
-              >
-                Helper text
-              </span>
-            </div>
-          </div>
-        </div>
+        <button type="submit">Add Laptop</button>
       </form>
     </div>
   );
