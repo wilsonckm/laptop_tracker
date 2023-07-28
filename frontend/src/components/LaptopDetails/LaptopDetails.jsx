@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import EditLaptopForm from '../EditLaptopFrom/EditLaptopForm';
 
-const LaptopDetails = ({ laptop }) => {
+const LaptopDetails = ({ laptop, getLaptops }) => {
   const [editBtn, setEditBtn] = useState(true);
   // container component needs to go to parent component, LaptopCard.jsx
   return (
@@ -16,7 +16,7 @@ const LaptopDetails = ({ laptop }) => {
         </div>
       )}
 
-      {!editBtn && <EditLaptopForm laptop={laptop} />}
+      {!editBtn && <EditLaptopForm laptop={laptop} getLaptops={getLaptops} />}
 
       <button onClick={() => setEditBtn(!editBtn)}>edit</button>
     </>
