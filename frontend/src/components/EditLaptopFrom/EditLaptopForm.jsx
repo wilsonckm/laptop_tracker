@@ -1,5 +1,7 @@
+
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 
 const EditLaptopForm = ({ laptop, getLaptops }) => {
   const [isEdit, setisEdit] = useState(true)
@@ -10,7 +12,7 @@ const EditLaptopForm = ({ laptop, getLaptops }) => {
     ssd: laptop.ssd,
     ram: laptop.ram,
   });
-  const BASE_URL = 'http://localhost:4000/api/laptops';
+  const BASE_URL = "http://localhost:4000/api/laptops";
 
   const handleChange = (evt) => {
     const editLaptopForm = { ...editForm, [evt.target.name]: evt.target.value };
@@ -23,10 +25,10 @@ const EditLaptopForm = ({ laptop, getLaptops }) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const options = {
+
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-      },
       body: JSON.stringify(editForm),
     };
     try {

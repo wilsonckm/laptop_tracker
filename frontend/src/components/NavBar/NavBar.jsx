@@ -4,9 +4,10 @@ export default function NavBar() {
   const userName = "Wilson";
   return (
     <nav>
-      <Link to="/laptops">All Laptops</Link>
+      <span> Laptops Co</span>
+      {/* <Link to="/laptops">All Laptops</Link> */}
       &nbsp; | &nbsp;
-      <Link to="/laptops/new">New Laptop</Link>
+      {/* <Link to="/laptops/new">New Laptop</Link> */}
       &nbsp;&nbsp;
       <span>Welcome, {userName}</span>
       &nbsp;&nbsp;
