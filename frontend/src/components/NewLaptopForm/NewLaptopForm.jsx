@@ -28,10 +28,10 @@ const NewLaptopForm = ({ getLaptops, setLaptops }) => {
       await fetch(BASE_URL, options);
       setLaptops([...newLaptop]);
       // setNewLaptop({});
-      getLaptops();
     } catch (error) {
       console.log(error);
     }
+    getLaptops();
   };
 
   return (

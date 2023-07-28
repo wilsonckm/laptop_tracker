@@ -22,7 +22,7 @@ const Laptops = () => {
 
   return (
     <>
-      <LaptopCard laptops={laptops} setLaptops={setLaptops} />
+      <LaptopCard getLaptops={getLaptops} laptops={laptops} setLaptops={setLaptops} />
     </>
   );
 };
