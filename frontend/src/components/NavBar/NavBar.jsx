@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default function NavBar({ user }) {
   return (
-    <nav>
+    <nav className="blue">
       <span> Laptops Co</span>
       {/* <Link to="/laptops">All Laptops</Link> */}
       &nbsp; | &nbsp;
