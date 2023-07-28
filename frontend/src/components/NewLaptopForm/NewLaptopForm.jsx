@@ -27,10 +27,16 @@ const NewLaptopForm = ({ getLaptops, setLaptops }) => {
     try {
       await fetch(BASE_URL, options);
       setLaptops([...newLaptop]);
-      // setNewLaptop({});
     } catch (error) {
       console.log(error);
     }
+    setNewLaptop({
+      brand: '',
+      model: '',
+      color: '',
+      ssd: '',
+      ram: '',
+    });
     getLaptops();
   };
 
