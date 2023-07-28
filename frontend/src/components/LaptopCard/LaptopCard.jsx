@@ -7,24 +7,34 @@ const LaptopCard = ({ laptops, getLaptops, setLaptops }) => {
   //updates the state FOR THIS CURRENT component
   //updates model, brand etc NEW STATE here
   //then call the getLaptops function
+  const handleDeleteLaptop = (laptopToDelete) => {
+    setLaptops((prevLaptops) =>
+      prevLaptops.filter((laptop) => laptop._id !== laptopToDelete._id),
+    );
+  };
 
   return (
     <>
       <div className="container">
-        <div className="row">
+        <div className="row ">
           {laptops.map((laptop) => (
-            <div className="col s12 m6">
-              <div className="card large">
+            <div className="col" key={laptop._id}>
+              <div className="card">
                 <div className="card-image">
                   <img src="https://static.independent.co.uk/2022/06/22/11/macbook%20pro%20m2%20indybest.jpg" />
                 </div>
-                <div className="card-content">
-                  <LaptopDetails laptop={laptop} />
+                <div className="card-content ">
+                  <LaptopDetails
+                    key={laptop._id}
+                    onDelete={handleDeleteLaptop}
+                    laptop={laptop}
+                    getLaptops={getLaptops}
+                  />
                 </div>
               </div>
             </div>
           ))}
-          <NewLaptopForm getLaptops={getLaptops} setLaptops={setLaptops} />
+          {/* <NewLaptopForm getLaptops={getLaptops} setLaptops={setLaptops} /> */}
         </div>
       </div>
     </>

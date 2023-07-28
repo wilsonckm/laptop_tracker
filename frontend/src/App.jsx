@@ -1,3 +1,4 @@
+
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import Laptops from "./pages/Laptops/Laptops";
