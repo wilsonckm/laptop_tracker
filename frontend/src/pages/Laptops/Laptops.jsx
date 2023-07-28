@@ -25,19 +25,20 @@ const Laptops = () => {
     <>
       {/* <LaptopCard getLaptops={getLaptops} laptops={laptops} setLaptops={setLaptops} /> */}
 
-      <div className="container">
-      <div className="row">
-        <div className="col s12 m6">
-        <LaptopCard getLaptops={getLaptops} laptops={laptops} setLaptops={setLaptops} />
-          
-        </div>
-        <div className="col s12 m6">
-          <NewLaptopForm getLaptops= { getLaptops} setLaptops= {setLaptops}  />
+      <div className="">
+        <div className="row">
+          <div className="col s12 m6">
+            <LaptopCard
+              getLaptops={getLaptops}
+              laptops={laptops}
+              setLaptops={setLaptops}
+            />
+          </div>
+          <div className="col s12 m6">
+            <NewLaptopForm getLaptops={getLaptops} setLaptops={setLaptops} />
+          </div>
         </div>
       </div>
-    </div>
-
-      
     </>
   );
 };
