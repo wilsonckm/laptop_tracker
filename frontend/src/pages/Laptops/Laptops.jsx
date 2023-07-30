@@ -34,7 +34,7 @@ const Laptops = () => {
               setLaptops={setLaptops}
             />
           </div>
-          <div className="col s12 m6">
+          <div className="col s12 m6 container">
             <NewLaptopForm getLaptops={getLaptops} setLaptops={setLaptops} />
           </div>
         </div>
