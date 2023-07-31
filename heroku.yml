@@ -1,10 +1,13 @@
 build:
-  frontend:
-    root: frontend/
-    script:
-      - npm install
-      - npm run build
   backend:
-    root: backend/
-    script:
-      - npm install
+    nodejs:
+      # Specify the directory containing the backend code
+      root: backend/
+      # Optional: Set any environment variables required for the backend here
+      # env: YOUR_BACKEND_ENV_VARIABLE=value
+  frontend:
+    nodejs:
+      # Specify the directory containing the frontend code
+      root: frontend/
+      # Optional: Set any environment variables required for the frontend here
+      # env: YOUR_FRONTEND_ENV_VARIABLE=value
