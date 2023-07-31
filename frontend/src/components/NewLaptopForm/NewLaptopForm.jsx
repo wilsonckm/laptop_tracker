@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 const NewLaptopForm = ({ getLaptops, setLaptops }) => {
-  const BASE_URL = 'http://localhost:4000/api/laptops';
+  const BASE_URL =
+    'https://secret-cove-46952-926c125f7927.herokuapp.com/api/laptops';
   const [newLaptop, setNewLaptop] = useState({
     brand: '',
     model: '',
