@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './EditLaptopForm.css';
 
 const EditLaptopForm = ({ laptop, getLaptops, setEditBtn }) => {
   const [isEdit, setisEdit] = useState(true);
@@ -92,7 +93,7 @@ const EditLaptopForm = ({ laptop, getLaptops, setEditBtn }) => {
           onClick={() => setisEdit(!isEdit)}
           type="submit"
         >
-          {isEdit ? 'submit' : 'edit'}
+          Submit
         </button>
       </form>
     </div>

@@ -50,14 +50,16 @@ const LaptopDetails = ({ laptop, getLaptops, onDelete }) => {
         className="btn blue waves-effect waves-light mr"
         onClick={() => setEditBtn(!editBtn)}
       >
-        edit
+        {editBtn ? 'Edit' : 'Back'}
       </button>
-      <button
-        className="btn blue waves-effect waves-light ml"
-        onClick={handleDelete}
-      >
-        Delete
-      </button>
+      {editBtn && (
+        <button
+          className="btn blue waves-effect waves-light ml"
+          onClick={handleDelete}
+        >
+          Delete
+        </button>
+      )}
     </>
   );
 };
