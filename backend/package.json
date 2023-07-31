@@ -16,6 +16,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "client": "npm run start --prefix ./frontend"
+  "description": ""
 }
