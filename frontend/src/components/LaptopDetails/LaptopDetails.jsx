@@ -5,7 +5,8 @@ const LaptopDetails = ({ laptop, getLaptops, onDelete }) => {
   const [editBtn, setEditBtn] = useState(true);
   // container component needs to go to parent component, LaptopCard.jsx
 
-  const BASE_URL = 'http://localhost:4000/api/laptops';
+  const BASE_URL =
+    'https://secret-cove-46952-926c125f7927.herokuapp.com/api/laptops';
 
   const handleDelete = async () => {
     try {

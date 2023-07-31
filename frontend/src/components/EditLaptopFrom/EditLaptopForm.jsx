@@ -11,7 +11,8 @@ const EditLaptopForm = ({ laptop, getLaptops, setEditBtn }) => {
     ssd: laptop.ssd,
     ram: laptop.ram,
   });
-  const BASE_URL = 'http://localhost:4000/api/laptops';
+  const BASE_URL =
+    'https://secret-cove-46952-926c125f7927.herokuapp.com/api/laptops';
 
   const handleChange = (evt) => {
     const editLaptopForm = { ...editForm, [evt.target.name]: evt.target.value };
