@@ -14,15 +14,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-postbuild": "npm run install-client --prefix client && npm run build --prefix client",
     "server": "nodemon server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
   },
   "engines": {
-    "node": "v18.16.0" 
+    "node": "v18.16.0"
   },
   "eslintConfig": {
     "extends": [
