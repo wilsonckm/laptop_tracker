@@ -1,0 +1,10 @@
+build:
+  frontend:
+    root: frontend/
+    script:
+      - npm install
+      - npm run build
+  backend:
+    root: backend/
+    script:
+      - npm install
