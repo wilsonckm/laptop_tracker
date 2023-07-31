@@ -23,17 +23,19 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors())
+app.use(cors());
 //ROUTES
 //This will provide an entry point to the laptops page
 app.use('/api/laptops', laptopRoutes);
+
+const port = PORT || 4000;
 
 //CONNECT TO DB
 mongoose
   .connect(MONGO_URI)
   .then(() => {
     //App listener, gives feedback if connected to datatabse
-    app.listen(PORT, () => {
+    app.listen(port, () => {
       console.log(`Connected to db and listening on port ${PORT}`);
     });
   })
