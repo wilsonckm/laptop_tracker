@@ -4,7 +4,7 @@ require('dotenv').config();
 //DEPENDENCIES
 const express = require('express');
 const mongoose = require('mongoose');
-const laptopRoutes = require('./routes/laptops');
+const laptopRoutes = require('./backend/routes/laptops');
 const cors = require('cors');
 
 //EXPRESS APP
