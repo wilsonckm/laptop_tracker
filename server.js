@@ -4,7 +4,7 @@ require('dotenv').config();
 //DEPENDENCIES
 const express = require('express');
 const mongoose = require('mongoose');
-const laptopRoutes = require('./routes/laptops');
+const laptopRoutes = require('./backend/routes/laptops');
 const cors = require('cors');
 
 //EXPRESS APP
@@ -23,17 +23,26 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors())
+app.use(cors());
 //ROUTES
 //This will provide an entry point to the laptops page
 app.use('/api/laptops', laptopRoutes);
+
+const port = PORT || 4000;
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
+}
 
 //CONNECT TO DB
 mongoose
   .connect(MONGO_URI)
   .then(() => {
     //App listener, gives feedback if connected to datatabse
-    app.listen(PORT, () => {
+    app.listen(port, () => {
       console.log(`Connected to db and listening on port ${PORT}`);
     });
   })
